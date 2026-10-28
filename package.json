@@ -1,0 +1,63 @@
+{
+  "name": "ve-rooom-app",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit --skipLibCheck",
+    "test": "vitest run",
+    "dev:worker": "wrangler dev",
+    "check": "npm run typecheck && npm test && npm run build",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "dependencies": {
+    "@cloudflare/realtimekit-react": "^2.0.4",
+    "@cloudflare/realtimekit-react-ui": "^2.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.1",
+    "react-router-dom": "^7.18.5",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261028.1",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "^5.5.4",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5",
+    "wrangler": "^4.154.0"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "cloudflare": {
+    "bindings": {
+      "CF_ACCOUNT_ID": {
+        "description": "Your Cloudflare account ID. Find it in the dashboard overview."
+      },
+      "CF_API_TOKEN": {
+        "description": "A scoped Cloudflare API token with RealtimeKit administration and Workers AI run permissions."
+      },
+      "RTK_APP_ID": {
+        "description": "The RealtimeKit app ID created in the Cloudflare dashboard."
+      },
+      "OPENROUTER_API_KEY": {
+        "description": "Optional OpenRouter key used as a summary fallback. Leave blank to use the Cloudflare/Gemini path only."
+      },
+      "GEMINI_API_KEY": {
+        "description": "Optional Gemini key for long-transcript summarization."
+      },
+      "RESEND_API_KEY": {
+        "description": "Optional Resend key for summary emails. Email delivery is disabled when no provider is configured."
+      },
+      "WEBHOOK_SECRET": {
+        "description": "Optional shared secret for RealtimeKit webhook requests."
+      }
+    }
+  }
+}

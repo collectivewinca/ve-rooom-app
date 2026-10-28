@@ -1,0 +1,32 @@
+name: Self-hosting problem
+description: Get help with a Deploy-to-Cloudflare or manual deployment
+title: "self-host: "
+labels: [self-hosting, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include API tokens, account IDs, app IDs, bucket credentials, or `.dev.vars` contents.
+  - type: dropdown
+    attributes:
+      label: Installation method
+      options:
+        - Deploy to Cloudflare button
+        - Wrangler CLI
+        - Workers Builds / Git integration
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Wrangler version
+      placeholder: 4.153.0
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Sanitized configuration and logs
+      description: Show binding names and error codes, but redact every value and identifier.

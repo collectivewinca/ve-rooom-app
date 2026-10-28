@@ -1,0 +1,29 @@
+name: Feature request
+description: Propose a user-facing improvement
+title: "feat: "
+labels: [enhancement, needs-triage]
+body:
+  - type: checkboxes
+    attributes:
+      label: Preflight
+      options:
+        - label: I searched existing issues, Discussions, and the roadmap.
+          required: true
+  - type: textarea
+    attributes:
+      label: Problem
+      description: What user problem should be solved?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Alternatives considered
+  - type: textarea
+    attributes:
+      label: Cloudflare usage, privacy, and retention impact
+      description: Explain expected request, AI, media-minute, KV, R2, or data-retention changes.

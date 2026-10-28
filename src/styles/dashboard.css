@@ -1,0 +1,567 @@
+.dashboard-page {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 2rem 1.5rem 4rem;
+}
+
+.dashboard-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+	font-size: 1.75rem;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+}
+
+.dashboard-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+.stat-card {
+	background: var(--gradient-card);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	padding: 1.25rem;
+}
+
+.stat-value {
+	font-size: 2rem;
+	font-weight: 800;
+	background: var(--gradient-primary);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.stat-label {
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: var(--color-text-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-top: 0.25rem;
+}
+
+.dashboard-page h2 {
+	font-size: 1.125rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+}
+
+.meeting-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.meeting-card {
+	background: var(--gradient-card);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	transition: border-color var(--transition);
+}
+
+.meeting-card:hover {
+	border-color: var(--color-border-hover);
+}
+
+.meeting-card.expanded {
+	border-color: rgba(251, 191, 36, 0.25);
+}
+
+.meeting-card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 1.25rem;
+	cursor: pointer;
+	transition: background var(--transition);
+}
+
+.meeting-card-header:hover {
+	background: rgba(251, 191, 36, 0.04);
+}
+
+.meeting-card-info {
+	flex: 1;
+	min-width: 0;
+}
+
+.meeting-card-title-row {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 0.375rem;
+}
+
+.meeting-card-title-row h3 {
+	font-size: 0.9375rem;
+	font-weight: 700;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.meeting-card-meta {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.25rem 0.5rem;
+	font-size: 0.6875rem;
+	color: var(--color-text-dim);
+}
+
+.meta-sep {
+	opacity: 0.5;
+}
+
+.meta-id {
+	font-family: monospace;
+	font-size: 0.625rem;
+	opacity: 0.7;
+}
+
+.meta-sessions,
+.meta-recordings {
+	color: var(--color-text-muted);
+}
+
+.meeting-card-actions {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.meeting-card-actions .btn-link {
+	width: auto;
+	padding: 0.4rem 0.75rem;
+	font-size: 0.6875rem;
+}
+
+.meeting-card-actions .btn-join {
+	background: rgba(34, 197, 94, 0.12);
+	color: #4ade80;
+	border-color: rgba(34, 197, 94, 0.2);
+}
+
+.meeting-card-actions .btn-join:hover:not(:disabled) {
+	background: rgba(34, 197, 94, 0.2);
+	border-color: rgba(34, 197, 94, 0.35);
+}
+
+.meeting-card-actions .btn-rejoin {
+	background: rgba(251, 191, 36, 0.1);
+	color: var(--color-primary-light);
+	border-color: rgba(251, 191, 36, 0.2);
+}
+
+.meeting-card-actions .btn-rejoin:hover:not(:disabled) {
+	background: rgba(251, 191, 36, 0.18);
+	border-color: rgba(251, 191, 36, 0.35);
+}
+
+.meeting-card-actions .btn-link:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.join-error-toast {
+	margin-bottom: 1rem;
+	font-size: 0.8125rem;
+}
+
+.expand-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-sm);
+	cursor: pointer;
+	color: var(--color-text-muted);
+	transition: all var(--transition);
+}
+
+.expand-toggle:hover {
+	color: var(--color-text);
+	border-color: var(--color-border-hover);
+}
+
+.meeting-card-body {
+	border-top: 1px solid var(--color-border);
+	padding: 1rem 1.25rem;
+	background: rgba(0, 0, 0, 0.15);
+}
+
+.no-sessions {
+	text-align: center;
+	padding: 1rem;
+}
+
+.no-sessions p {
+	font-size: 0.75rem;
+	color: var(--color-text-muted);
+}
+
+.session-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.session-row {
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+	gap: 1rem;
+	align-items: center;
+	padding: 0.75rem 1rem;
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	transition: border-color var(--transition);
+}
+
+.session-row.live {
+	border-color: rgba(34, 197, 94, 0.2);
+}
+
+.session-row.ended {
+	opacity: 0.9;
+}
+
+.session-row-main {
+	min-width: 0;
+}
+
+.session-row-header {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 0.375rem;
+}
+
+.session-status-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 8px;
+	border-radius: var(--radius-full);
+	font-size: 0.5625rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.session-status-badge.live {
+	background: rgba(34, 197, 94, 0.15);
+	color: #4ade80;
+}
+
+.session-status-badge.ended {
+	background: rgba(148, 163, 184, 0.15);
+	color: #94a3b8;
+}
+
+.session-status-badge.init {
+	background: rgba(251, 191, 36, 0.12);
+	color: var(--color-primary-light);
+}
+
+.session-id {
+	font-family: monospace;
+	font-size: 0.625rem;
+	color: var(--color-text-dim);
+}
+
+.session-row-details {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem 1rem;
+	font-size: 0.6875rem;
+	color: var(--color-text-dim);
+}
+
+.session-detail {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.session-detail-label {
+	font-size: 0.5625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--color-text-dim);
+	opacity: 0.6;
+}
+
+.session-row-recordings {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	align-items: flex-end;
+}
+
+.recording-group {
+	display: flex;
+	align-items: center;
+	gap: 0.375rem;
+}
+
+.recording-type {
+	font-size: 0.5625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--color-text-dim);
+	font-weight: 600;
+}
+
+.recording-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 6px;
+	border-radius: var(--radius-sm);
+	font-size: 0.5625rem;
+	font-weight: 600;
+	background: rgba(255, 255, 255, 0.04);
+	color: var(--color-text-muted);
+}
+
+.recording-badge.uploaded {
+	background: rgba(34, 197, 94, 0.1);
+	color: #4ade80;
+}
+
+.recording-badge.recording {
+	background: rgba(239, 68, 68, 0.1);
+	color: #f87171;
+}
+
+.recording-badge.invoked {
+	background: rgba(251, 191, 36, 0.1);
+	color: var(--color-primary-light);
+}
+
+.recording-badge.failed {
+	background: rgba(239, 68, 68, 0.1);
+	color: #f87171;
+}
+
+.no-recordings {
+	font-size: 0.625rem;
+	color: var(--color-text-dim);
+	font-style: italic;
+}
+
+.session-transcription-status {
+	margin-top: 0.25rem;
+}
+
+.transcription-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 6px;
+	border-radius: var(--radius-sm);
+	font-size: 0.5625rem;
+	font-weight: 600;
+}
+
+.transcription-badge.transcribed {
+	background: rgba(34, 197, 94, 0.1);
+	color: #4ade80;
+}
+
+.transcription-badge.not-transcribed {
+	background: rgba(239, 68, 68, 0.08);
+	color: #f87171;
+}
+
+.session-row-action {
+	flex-shrink: 0;
+}
+
+.session-row-action .btn-link {
+	width: auto;
+	padding: 0.375rem 0.625rem;
+	font-size: 0.625rem;
+}
+
+.recording-ready {
+	font-size: 0.625rem;
+	color: #4ade80;
+	font-weight: 600;
+}
+
+.meeting-config {
+	display: flex;
+	gap: 0.5rem;
+	margin-top: 0.75rem;
+	padding-top: 0.75rem;
+	border-top: 1px solid var(--color-border);
+	flex-wrap: wrap;
+}
+
+.config-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 3px;
+	padding: 3px 8px;
+	border-radius: var(--radius-sm);
+	font-size: 0.5625rem;
+	font-weight: 600;
+	background: rgba(255, 255, 255, 0.03);
+}
+
+.config-tag.on {
+	color: #4ade80;
+	background: rgba(34, 197, 94, 0.08);
+}
+
+.config-tag.off {
+	color: var(--color-text-dim);
+	opacity: 0.5;
+}
+
+.meeting-creator {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 0;
+	margin-bottom: 0.5rem;
+	border-bottom: 1px solid var(--color-border);
+	font-size: 0.75rem;
+}
+
+.creator-label {
+	color: var(--color-text-dim);
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 0.5625rem;
+	letter-spacing: 0.05em;
+}
+
+.creator-name {
+	color: var(--color-text);
+	font-weight: 600;
+}
+
+.creator-email {
+	color: var(--color-text-dim);
+	font-size: 0.6875rem;
+	margin-left: auto;
+}
+
+.meeting-participants {
+	padding: 0.5rem 0;
+	margin-bottom: 0.5rem;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.participants-label {
+	color: var(--color-text-dim);
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 0.5625rem;
+	letter-spacing: 0.05em;
+	display: block;
+	margin-bottom: 0.375rem;
+}
+
+.participant-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.375rem;
+}
+
+.participant-chip {
+	display: inline-flex;
+	align-items: center;
+	padding: 3px 8px;
+	border-radius: var(--radius-full);
+	background: rgba(251, 191, 36, 0.08);
+	border: 1px solid rgba(251, 191, 36, 0.15);
+	font-size: 0.6875rem;
+	font-weight: 600;
+	color: var(--color-primary-light);
+}
+
+.cache-badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 6px;
+	border-radius: var(--radius-sm);
+	background: rgba(34, 197, 94, 0.1);
+	color: #4ade80;
+	font-size: 0.5625rem;
+	font-weight: 700;
+}
+
+.meta-creator {
+	color: var(--color-text-muted);
+}
+
+.meta-participants {
+	color: var(--color-text-muted);
+}
+
+.dashboard-search {
+	margin-bottom: 1rem;
+}
+
+.dashboard-search input {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	background: rgba(15, 12, 8, 0.6);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	color: var(--color-text);
+	font-size: 0.9375rem;
+	transition: all var(--transition);
+}
+
+.dashboard-search input::placeholder {
+	color: var(--color-text-dim);
+}
+
+.dashboard-search input:focus {
+	outline: none;
+	border-color: var(--color-primary);
+	box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15);
+	background: rgba(15, 12, 8, 0.8);
+}
+
+.skeleton {
+	background: linear-gradient(90deg, rgba(30, 25, 15, 0.6) 25%, rgba(45, 38, 20, 0.8) 50%, rgba(30, 25, 15, 0.6) 75%);
+	background-size: 200% 100%;
+	animation: shimmer 1.5s ease-in-out infinite;
+	border-radius: var(--radius-md);
+}
+
+@keyframes shimmer {
+	0% { background-position: 200% 0; }
+	100% { background-position: -200% 0; }
+}
+
+.skeleton-stat {
+	height: 80px;
+}
+
+.skeleton-row {
+	height: 60px;
+	margin-bottom: 0.75rem;
+}
+
+.skeleton-card {
+	height: 48px;
+	margin-bottom: 0.75rem;
+}

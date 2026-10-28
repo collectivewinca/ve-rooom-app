@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use VE Rooom in research or a published project, please cite the software."
+title: "VE Rooom"
+type: software
+authors:
+  - name: "VE Lab contributors"
+repository-code: "https://github.com/collectivewinca/ve-rooom-app"
+url: "https://ve-rooom.collectivewin.network"
+license: Apache-2.0
+version: 0.1.0
+date-released: 2026-10-28

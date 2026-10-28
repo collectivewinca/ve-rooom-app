@@ -1,0 +1,54 @@
+node_modules
+dist
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.wrangler
+.worker-build/
+*.local
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+wrangler.log
+tsconfig*.tsbuildinfo
+vite.config.d.ts
+vite.config.js
+
+# Local recordings / transcripts produced while debugging
+tmp_recordings/
+segments/
+*.mp3
+*.mp4
+*.webm
+transcription_log.txt
+jssa-amply-transcript-*.txt
+segment_000_*.txt
+segment_000_*.json
+
+# Build / deploy output dumps
+build-out.txt
+deploy-out.txt
+
+# Test and coverage output
+coverage/
+*.lcov
+
+# Local agent / editor tooling (per-machine, not part of the app)
+.claude/
+.codebuddy/
+.cursor/
+.gemini/
+.kiro/
+.qoder/
+.vscode/
+.code-review-graph/
+.mcp.json
+.cursorrules
+.windsurfrules
+AGENTS.md
+CLAUDE.md
+CODEBUDDY.md
+GEMINI.md
+QODER.md

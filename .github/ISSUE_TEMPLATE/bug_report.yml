@@ -1,0 +1,51 @@
+name: Bug report
+description: Report a reproducible defect
+title: "bug: "
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Remove all credentials, recording URLs, transcripts, and personal data. Security issues belong in private vulnerability reporting.
+  - type: checkboxes
+    attributes:
+      label: Preflight
+      options:
+        - label: I searched existing issues and Discussions.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true
+  - type: dropdown
+    attributes:
+      label: Deployment
+      options:
+        - Official demo
+        - Deploy-to-Cloudflare copy
+        - Manual Worker deployment
+        - Local development
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Reproduction steps
+      placeholder: Provide a minimal, sanitized sequence of steps.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Browser and Wrangler version
+      placeholder: Chrome 141; Wrangler 4.153.0
+  - type: textarea
+    attributes:
+      label: Sanitized logs or screenshots
+      description: Never paste tokens, emails, transcript text, or signed media URLs.

@@ -1,0 +1,66 @@
+# Required: Cloudflare account + RealtimeKit
+CF_ACCOUNT_ID=your_account_id
+CF_API_TOKEN=your_api_token_with_realtime_admin
+
+# Wrangler reads CLOUDFLARE_* (not CF_*). Set these to the same values as
+# above so `npx wrangler ...` targets the right account instead of failing
+# with "Authentication error [code: 10000]".
+CLOUDFLARE_ACCOUNT_ID=your_account_id
+CLOUDFLARE_API_TOKEN=your_api_token_with_realtime_admin
+
+# RealtimeKit app
+RTK_APP_ID=your_realtimekit_app_id
+
+# Optional summary providers. Workers AI is used automatically through the
+# Cloudflare account above; the providers below are fallbacks.
+OPENROUTER_API_KEY=your_openrouter_key
+OPENROUTER_MODEL=openrouter/free
+OPENROUTER_FREE_MODEL=openrouter/free
+
+# Ollama Cloud (optional)
+# Base URL: https://ollama.com for Ollama Cloud, or http://localhost:11434 for local
+OLLAMA_API_KEY=your_ollama_cloud_key
+OLLAMA_BASE_URL=https://ollama.com
+OLLAMA_MODEL=llama3.1:8b
+
+# Gemini — used for transcripts larger than 10k characters
+GEMINI_API_KEY=your_gemini_key
+
+# --- Email delivery (optional) ---
+# Custom relay base URL. Must expose POST <base>/send-batch.
+SMTP_API_URL=
+# Resend is used when a custom relay is absent or fails.
+RESEND_API_KEY=your_resend_key
+# EMAIL_FROM: from address for the fallback provider.
+EMAIL_FROM=VE Rooom <meetings@example.com>
+# ALWAYS_EMAIL: extra recipients that receive every meeting summary (comma separated).
+ALWAYS_EMAIL=
+
+# Optional comma-separated admin emails for deployments using an external
+# identity provider. Local pseudonymous users only see their own meetings.
+ADMIN_EMAILS=
+
+# Optional legacy/external PocketBase auth gateway. Fresh deployments do not
+# need it: the app creates a persistent local pseudonymous user ID.
+FORMSDB_URL=
+
+# --- RealtimeKit native R2 transfer (optional) ---
+# These let RealtimeKit push recordings straight into our R2 bucket instead of
+# relying on the webhook copy. Create them in the Cloudflare dashboard:
+# R2 -> Manage R2 API Tokens -> Create Account API token (Object Read & Write),
+# then set the S3 endpoint/account id alongside the keys.
+# Leave blank if you do not have them: recordings are still copied by the
+# webhook, which is the primary path.
+R2_ACCESS_KEY_ID=
+R2_SECRET_ACCESS_KEY=
+R2_BUCKET_NAME=ve-rooom-recordings
+# Cloudflare account that owns the bucket (defaults to CF_ACCOUNT_ID).
+R2_ACCOUNT_ID=
+
+# --- Webhook security ---
+# Optional shared secret for /api/webhook. When set, requests must carry it in
+# the `x-webhook-secret` header. Leave empty while RealtimeKit has no secret
+# configured for this app.
+WEBHOOK_SECRET=
+# Extra media host suffixes the URL guard accepts (comma separated).
+MEDIA_ALLOWED_HOSTS=

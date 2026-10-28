@@ -1,0 +1,29 @@
+name = "ve-rooom-app"
+main = "worker/index.ts"
+compatibility_date = "2026-10-28"
+workers_dev = true
+preview_urls = true
+upload_source_maps = true
+
+[observability]
+enabled = true
+
+# Static SPA is served by the Workers assets layer; /api/* always runs the
+# Worker script (see worker/index.ts for the API routing table).
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*"]
+
+[dev]
+# Keep in sync with the vite dev proxy target (vite.config.ts).
+port = 8788
+
+[[kv_namespaces]]
+binding = "MEETING_CACHE"
+id = "00000000000000000000000000000000"
+
+[[r2_buckets]]
+binding = "RECORDINGS_BUCKET"
+bucket_name = "ve-rooom-recordings"

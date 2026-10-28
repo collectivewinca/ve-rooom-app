@@ -1,0 +1,37 @@
+:root {
+	--gradient-primary: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+	--gradient-primary-hover: linear-gradient(135deg, #fcd34d 0%, #fbbf24 50%, #f59e0b 100%);
+	--gradient-bg: radial-gradient(ellipse at 20% 0%, rgba(251, 191, 36, 0.12) 0%, transparent 50%),
+	               radial-gradient(ellipse at 80% 100%, rgba(217, 119, 6, 0.08) 0%, transparent 50%),
+	               radial-gradient(ellipse at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 70%);
+	--gradient-card: linear-gradient(145deg, rgba(30, 25, 15, 0.85) 0%, rgba(15, 12, 8, 0.9) 100%);
+	--gradient-button-secondary: linear-gradient(135deg, rgba(251, 191, 36, 0.08) 0%, rgba(251, 191, 36, 0.04) 100%);
+
+	--color-bg: #0a0805;
+	--color-surface: rgba(30, 25, 15, 0.6);
+	--color-surface-hover: rgba(45, 38, 20, 0.8);
+	--color-border: rgba(251, 191, 36, 0.1);
+	--color-border-hover: rgba(251, 191, 36, 0.2);
+	--color-text: #fef3c7;
+	--color-text-muted: #a18871;
+	--color-text-dim: #78716c;
+	--color-primary: #f59e0b;
+	--color-primary-light: #fbbf24;
+	--color-accent: #d97706;
+	--color-success: #22c55e;
+	--color-danger: #ef4444;
+	--color-warning: #f59e0b;
+
+	--radius-sm: 8px;
+	--radius-md: 12px;
+	--radius-lg: 16px;
+	--radius-xl: 24px;
+	--radius-full: 999px;
+
+	--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+	--shadow-md: 0 4px 20px rgba(0, 0, 0, 0.35);
+	--shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.4);
+	--shadow-glow: 0 0 40px rgba(251, 191, 36, 0.25);
+
+	--transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
