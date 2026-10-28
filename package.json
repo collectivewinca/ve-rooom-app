@@ -33,7 +33,7 @@
     "wrangler": "^4.154.0"
   },
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=22"
   },
   "cloudflare": {
     "bindings": {

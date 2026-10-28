@@ -45,7 +45,7 @@ See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for endpoint and data-flow de
 
 ### Requirements
 
-- Node.js 20 or newer
+- Node.js 22 or newer
 - A Cloudflare account with RealtimeKit enabled
 - A RealtimeKit app
 - A scoped Cloudflare API token with RealtimeKit administration and Workers AI run permissions

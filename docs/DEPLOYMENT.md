@@ -50,7 +50,7 @@ Recommended production settings:
 | Build command | `npm run build` |
 | Deploy command | `npx wrangler deploy` |
 | Root directory | `/` |
-| Node.js | 20 or newer |
+| Node.js | 22 or newer |
 
 Require the CI check before merging to `main`.
 

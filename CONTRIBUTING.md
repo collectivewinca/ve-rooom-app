@@ -15,7 +15,7 @@ By participating, you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 Requirements:
 
-- Node.js 20+
+- Node.js 22+
 - A Cloudflare account
 - A RealtimeKit app and scoped API token
 
